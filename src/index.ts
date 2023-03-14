@@ -2,33 +2,26 @@
     ===== Código de TypeScript =====
 */
 
-interface Reproductor {
-    volumen: number;
-    segundo: number;
-    cancion: string;
-    detalles: Detalles;
+interface Pasajero {
+    nombre: string;
+    hijos?: string[]
 }
 
-interface Detalles {
-    autor: string;
-    anio: number;
-}
-
-const reproductor: Reproductor = {
-    volumen: 330,
-    segundo: 10,
-    cancion: "",
-    detalles: {
-        autor: 'Camilo',
-        anio: 2023
-    }
+const pasajero1: Pasajero = {
+    nombre: 'Pasajero 1'
 }
 
 
-const {volumen :vol,segundo,cancion,detalles } = reproductor;
-const {autor,anio } = detalles;
+const pasajero2: Pasajero = {
+    nombre: 'Pasajero 2',
+    hijos: ['juan', 'pedro', 'luis']
+}
 
-console.log('Cancion actual',cancion );
-console.log('Volumen cancion actual',vol);
-console.log('Segundo cancion actual',segundo);
-console.log('Autor cancion actual',autor);
+function imprimeHijos(pasajero: Pasajero): void {
+
+    const cuantosHijos=pasajero.hijos?.length || 0
+    console.log(cuantosHijos);
+}
+
+imprimeHijos(pasajero1);
+imprimeHijos(pasajero2);
